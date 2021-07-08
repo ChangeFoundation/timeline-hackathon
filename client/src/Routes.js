@@ -3,13 +3,15 @@ import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import Categories from "./components/Categories";
 import Timeline from "./components/Timeline";
 import Post from "./components/Post";
-import Home from "./components/Home"
+import Home from "./pages/Home";
+import Header from "./components/Header";
 
 function Routes() {
   return (
     <Router>
+      <Header />
       <Switch>
-      <Route exact path="/">
+        <Route exact path="/">
           <Home />
         </Route>
         <Route exact path="/timeline">
