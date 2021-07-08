@@ -1,9 +1,9 @@
 import React from "react";
+import Route from "./route";
+import "./styles.scss";
 
 const App = () => {
-  return (
-    <h3>Hackathon</h3>
-  );
-}
+  return <Route />;
+};
 
 export default App;
