@@ -1,8 +1,10 @@
 import React from "react";
+import avatar from "../images/avatar.svg";
+import search from "../images/search.svg";
 
 const Header = () => {
   return (
-    <nav className="border-bottom navbar navbar-expand-lg navbar-light">
+    <nav className="border-bottom navbar navbar-expand-lg navbar-light px-5">
       <div className="container-fluid">
         <a className="navbar-brand text-danger" href="/">
           Change.org
@@ -36,15 +38,13 @@ const Header = () => {
             </li>
           </ul>
           <div className="d-flex">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
+            <img
+              src={search}
+              alt="search"
+              className="me-3"
+              style={{ width: "1.5rem" }}
             />
-            <button className="btn btn-outline-success" type="submit">
-              Search
-            </button>
+            <img src={avatar} alt="avatar" style={{ width: "1.5rem" }} />
           </div>
         </div>
       </div>
