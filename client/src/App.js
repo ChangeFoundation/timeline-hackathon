@@ -1,7 +1,6 @@
 import React from "react";
 import Routes from "./Routes";
 import "./styles/main.scss";
-import "./styles.scss";
 
 const App = () => {
   return <Routes />;

@@ -1,8 +1,8 @@
 import React from "react";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
-import Categories from "./components/Categories";
-import Timeline from "./components/Timeline";
-import Post from "./components/Post";
+import Categories from "./pages/Categories";
+import Timeline from "./pages/Timeline";
+import Post from "./pages/Post";
 import Home from "./pages/Home";
 import Header from "./components/Header";
 
