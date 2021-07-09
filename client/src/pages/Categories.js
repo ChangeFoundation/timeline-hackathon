@@ -3,18 +3,19 @@ import { useLocation } from "react-router-dom";
 import Card from "../components/Card";
 
 function Categories() {
-  const [petitions, setPetitions] = useState([]);
+  const [users, setUsers] = useState([]);
   const location = useLocation();
 
   useEffect(() => {
-    setPetitions(location.state);
+    setUsers(location.state);
   }, [location]);
 
   return (
     <div className="container">
       <div className="row">
-        {petitions.map((petition, index) => (
-          <Card petition={petition} key={index} />
+          <h4 className="my-3 px-5">Petition starters with similar interests</h4>
+        {users.map((user, index) => (
+          <Card user={user} key={index} />
         ))}
       </div>
     </div>
