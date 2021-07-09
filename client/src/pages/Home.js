@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import coins from "../images/coins.svg";
-
+import users from "../data";
+ 
 const issues = [
   { title: "Women's rights", icon: coins },
   { title: "Environment", icon: coins },
@@ -26,13 +27,12 @@ const Home = () => {
 
   const handleClick = (title) => {
     if (title) {
-      const categories = issues.filter((petition) => petition.title === title);
-      setInterests(categories)
+      const categories = users.filter((user) => user.interests.includes(title));
+     setInterests(categories)
       history.push({
         pathname: `/posts`,
         state: categories,
       });
-      return;
     }
     if (interests.includes(title)) {
       setInterests((prevInterests) =>
@@ -46,7 +46,7 @@ const Home = () => {
   useEffect(() => {
     setInterests(issues);
   }, []);
-
+console.log(users)
   return (
     <main className="home">
       <h1>What kind of issues are you interested in following?</h1>
@@ -55,7 +55,7 @@ const Home = () => {
         interested supporters{" "}
       </p>
       <section className="issues">
-        {interests.map(({ title, icon }) => {
+        {issues.map(({ title, icon }) => {
           return (
             <div
               className="d-flex flex-column align-items-center mb-3"
