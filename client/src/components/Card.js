@@ -9,7 +9,7 @@ function Card(props) {
 
   const goToPostPage = () => {
     history.push({
-      pathname: `/timeline/posts/${petition.title}`,
+      pathname: `posts/${petition.title}`,
       state: petition,
     });
     window.scrollTo(0, 0);
@@ -20,21 +20,31 @@ function Card(props) {
   }, [props]);
 
   return (
-    <div className="col-12 col-md-4">
-      <div className="card my-3 my-md-5" key={petition.title}>
-        <img
-          src={logo}
-          onClick={() => {
-            goToPostPage();
-          }}
-          className="img-fluid card-img-right"
-          alt="placeholder"
-        />
-        <h4 className="text-primary">
-          Post {petition.title}: {petition.tag}
-        </h4>
+    <section>
+      <div
+        className="card my-3 col-12"
+        key={petition.title}
+        onClick={() => {
+          goToPostPage();
+        }}
+      >
+        <div className="row col-12">
+          <div className="col-md-4">
+            <img
+              src={logo}
+              className="img-fluid rounded-start"
+              alt="placeholder"
+            />
+          </div>
+
+          <div className="col-md-8 align-self-center">
+            <h4 className="card-title text-primary">
+              Post {petition.title}: {petition.tag}
+            </h4>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
 

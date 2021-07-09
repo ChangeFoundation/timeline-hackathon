@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import arrayData from "./data";
+import arrayData from "../data";
 
 function Timeline() {
   const [petitions, setPetitions] = useState([]);
