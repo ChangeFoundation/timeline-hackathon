@@ -39,7 +39,7 @@ function Card(props) {
 
           <div className="col-md-8 align-self-center">
             <h4 className="card-title text-primary">
-              Post {petition.title}: {petition.tag}
+             {petition.title}
             </h4>
           </div>
         </div>
