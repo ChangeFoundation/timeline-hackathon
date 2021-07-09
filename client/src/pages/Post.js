@@ -3,16 +3,16 @@ import { useLocation} from "react-router-dom";
 import image from "../images/placeholder.png";
 
 function Post() {
-  const [petition, setPetitions] = useState({});
+  const [user, setUser] = useState({});
   const location = useLocation();
   useEffect(() => {
-    setPetitions(location.state);
+    setUser(location.state);
   }, [location]);
 
   return (
     <div className="col-12 col-md-8 my-3 my-md-5 container">
-      <h4 className="text-primary">{petition.title}</h4>
-       <div className="card" key={petition.title}>
+      <h4 className="text-primary">{user.name}</h4>
+       <div className="card" key={user.name}>
         <img
           src={image}
           className="img-fluid card-img-right"

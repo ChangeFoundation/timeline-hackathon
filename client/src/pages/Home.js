@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import coins from "../images/coins.svg";
-import users from "../data";
- 
+import users from "../users";
+
 const issues = [
   { title: "Women's rights", icon: coins },
   { title: "Environment", icon: coins },
@@ -22,31 +22,31 @@ const issues = [
 ];
 
 const Home = () => {
-  const [interests, setInterests] = useState([]);
+  const [categories, setCategories] = useState([]);
   const history = useHistory()
 
   const handleClick = (title) => {
     if (title) {
-      const categories = users.filter((user) => user.interests.includes(title));
-     setInterests(categories)
+      const interests = users.filter((user) => user.interests.includes(title));
+      setCategories(interests)
       history.push({
         pathname: `/posts`,
-        state: categories,
+        state: interests,
       });
     }
-    if (interests.includes(title)) {
-      setInterests((prevInterests) =>
+    if (categories.includes(title)) {
+      setCategories((prevInterests) =>
         prevInterests.filter((interest) => interest !== title)
       );
       return;
     }
-    setInterests([...interests, title]);
+    setCategories([...categories, title]);
   };
 
   useEffect(() => {
-    setInterests(issues);
+    setCategories(issues);
   }, []);
-console.log(users)
+
   return (
     <main className="home">
       <h1>What kind of issues are you interested in following?</h1>
@@ -63,7 +63,7 @@ console.log(users)
               onClick={() => handleClick(title)}
             >
               <div
-                className={`issue-selector ${interests.includes(title) ? "border border-danger" : ""
+                className={`issue-selector ${categories.includes(title) ? "border border-danger" : ""
                   }`}
               >
                 <img src={icon} alt={title} className="w-50" />
